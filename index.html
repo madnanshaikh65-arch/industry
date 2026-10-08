@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Industry - Industrial Company</title>
+
+    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+
+        .top-bar {
+            background: #f4f4f4;
+            padding: 10px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .top-left span {
+            margin-right: 25px;
+        }
+
+        .top-right a {
+            color: #777;
+            margin-left: 18px;
+            transition: 0.3s;
+        }
+
+        .top-right a:hover {
+            color: #f5a623;
+        }
+
+
+       
+
+        .navbar {
+            width: 100%;
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            color: #222;
+            font-size: 29px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f5a623;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #222;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f5a623;
+        }
+
+        .quote-btn {
+            background: #f5a623;
+            color: white !important;
+            padding: 13px 22px;
+            transition: 0.3s;
+        }
+
+        .quote-btn:hover {
+            background: #222;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+      
+
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55),
+                rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 7%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: white;
+        }
+
+        .hero-content h5 {
+            color: #f5a623;
+            font-size: 18px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            color: #eee;
+            margin-bottom: 35px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #f5a623;
+            color: white;
+            padding: 15px 28px;
+            margin-right: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: white;
+            color: #222;
+        }
+
+        .hero-btn.second {
+            background: transparent;
+            border: 1px solid white;
+        }
+
+        .hero-btn.second:hover {
+            background: white;
+            color: #222;
+        }
+
+
+       
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: auto;
+            color: #777;
+        }
+
+        .orange {
+            color: #f5a623;
+        }
+
+
+        
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img img {
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .about-content p {
+            color: #777;
+            margin-bottom: 18px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .about-list li {
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .about-list li::before {
+            content: "✓";
+            color: #f5a623;
+            margin-right: 12px;
+        }
+
+        .read-btn {
+            display: inline-block;
+            background: #f5a623;
+            color: white;
+            padding: 14px 25px;
+            transition: 0.3s;
+        }
+
+        .read-btn:hover {
+            background: #222;
+        }
+
+
+       
+
+        .services-section {
+            background: #f7f7f7;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            text-align: center;
+            transition: 0.4s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid #f5a623;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #f5a623;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            font-size: 30px;
+            border-radius: 50%;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .service-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+
+        .stats {
+            background:
+                linear-gradient(rgba(0, 0, 0, .75),
+                rgba(0, 0, 0, .75)),
+                url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat h2 {
+            color: #f5a623;
+            font-size: 45px;
+        }
+
+        .stat p {
+            font-size: 16px;
+        }
+
+
+        
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project img {
+            height: 300px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 25px;
+            color: white;
+            background: linear-gradient(transparent, rgba(0, 0, 0, .9));
+        }
+
+        .project-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .project-info p {
+            color: #f5a623;
+        }
+
+
+       
+
+        .why-section {
+            background: #f7f7f7;
+        }
+
+        .why {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 35px;
+            border-left: 4px solid #f5a623;
+        }
+
+        .why-card h3 {
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .why-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+   
+
+        .testimonial-section {
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .testimonial p {
+            font-size: 20px;
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .testimonial h3 {
+            color: #f5a623;
+        }
+
+
+       
+
+        .blogs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .blog-card {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        }
+
+        .blog-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-content small {
+            color: #f5a623;
+        }
+
+        .blog-content h3 {
+            margin: 12px 0;
+            color: #222;
+        }
+
+        .blog-content p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .blog-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #f5a623;
+            font-weight: bold;
+        }
+
+
+     
+        .cta {
+            background: #f5a623;
+            padding: 65px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+        }
+
+        .cta-btn {
+            background: #222;
+            color: white;
+            padding: 15px 28px;
+            font-weight: bold;
+        }
+
+
+      
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 18px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #222;
+        }
+
+        .contact-item span {
+            color: #777;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .submit-btn {
+            border: none;
+            background: #f5a623;
+            color: white;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background: #222;
+        }
+
+
+
+        footer {
+            background: #181818;
+            color: white;
+            padding: 70px 7% 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-box p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+        }
+
+        .footer-box ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-box ul li a {
+            color: #aaa;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-box ul li a:hover {
+            color: #f5a623;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #f5a623;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            padding-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+
+            .services,
+            .projects,
+            .blogs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .top-bar {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px 7%;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .about,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .services,
+            .projects,
+            .blogs,
+            .why {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 0 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 34px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            .hero-btn {
+                margin-bottom: 10px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 27px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+  
+
+    <div class="top-bar">
+
+        <div class="top-left">
+            <span>📞 +1 234 567 890</span>
+            <span>✉ info@industry.com</span>
+        </div>
+
+        <div class="top-right">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+
+    </div>
+
+
+   
+
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            INDUSTR<span>Y</span>
+        </a>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">HOME</a>
+            </li>
+
+            <li>
+                <a href="#about">ABOUT</a>
+            </li>
+
+            <li>
+                <a href="#services">SERVICES</a>
+            </li>
+
+            <li>
+                <a href="#projects">PROJECTS</a>
+            </li>
+
+            <li>
+                <a href="#blog">BLOG</a>
+            </li>
+
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li>
+
+            <li>
+                <a href="#contact" class="quote-btn">
+                    GET A QUOTE
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+   
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h5>WELCOME TO OUR COMPANY</h5>
+
+            <h1>
+                Building A Better
+                Future Together
+            </h1>
+
+            <p>
+                We provide high-quality industrial, construction
+                and engineering solutions with modern technology
+                and professional expertise.
+            </p>
+
+            <a href="#services" class="hero-btn">
+                OUR SERVICES
+            </a>
+
+            <a href="#contact" class="hero-btn second">
+                CONTACT US
+            </a>
+
+        </div>
+
+    </section>
+
+
+  
+
+    <section class="section" id="about">
+
+        <div class="about">
+
+            <div class="about-img">
+
+                <img
+                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80"
+                    alt="Industry">
+
+            </div>
+
+
+            <div class="about-content">
+
+                <h2>
+                    We Are A Leading
+                    <span class="orange">Industrial Company</span>
+                </h2>
+
+                <p>
+                    We are committed to providing innovative and
+                    reliable industrial solutions for businesses
+                    around the world.
+                </p>
+
+                <p>
+                    Our experienced team combines modern technology,
+                    quality materials and professional services to
+                    deliver excellent results.
+                </p>
+
+                <ul class="about-list">
+
+                    <li>Quality Services</li>
+                    <li>Professional Team</li>
+                    <li>Modern Technology</li>
+                    <li>Customer Satisfaction</li>
+
+                </ul>
+
+                <a href="#" class="read-btn">
+                    READ MORE
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="section services-section" id="services">
+
+        <div class="section-title">
+
+            <h2>
+                Our <span class="orange">Services</span>
+            </h2>
+
+            <p>
+                We offer a wide range of professional industrial
+                services designed to meet the needs of our clients.
+            </p>
+
+        </div>
+
+
+        <div class="services">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ⚙
+                </div>
+
+                <h3>Industrial Manufacturing</h3>
+
+                <p>
+                    Professional manufacturing solutions using
+                    modern equipment and technology.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏗
+                </div>
+
+                <h3>Construction</h3>
+
+                <p>
+                    High-quality construction services for
+                    commercial and industrial projects.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🔧
+                </div>
+
+                <h3>Engineering</h3>
+
+                <p>
+                    Innovative engineering solutions delivered
+                    by experienced professionals.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏭
+                </div>
+
+                <h3>Factory Solutions</h3>
+
+                <p>
+                    Complete factory solutions for efficient
+                    and reliable production.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚚
+                </div>
+
+                <h3>Logistics</h3>
+
+                <p>
+                    Reliable transportation and logistics
+                    services for your business.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💡
+                </div>
+
+                <h3>Consulting</h3>
+
+                <p>
+                    Expert consulting services to improve your
+                    industrial operations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="section stats">
+
+        <div class="stat">
+
+            <h2>25+</h2>
+
+            <p>Years Experience</p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2>350+</h2>
+
+            <p>Projects Completed</p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2>120+</h2>
+
+            <p>Professional Workers</p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2>98%</h2>
+
+            <p>Happy Clients</p>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="section" id="projects">
+
+        <div class="section-title">
+
+            <h2>
+                Our <span class="orange">Projects</span>
+            </h2>
+
+            <p>
+                Take a look at some of our latest industrial
+                and construction projects.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1000&q=80"
+                    alt="Project">
+
+                <div class="project-info">
+
+                    <h3>Modern Construction</h3>
+
+                    <p>Construction</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80"
+                    alt="Project">
+
+                <div class="project-info">
+
+                    <h3>Industrial Building</h3>
+
+                    <p>Architecture</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80"
+                    alt="Project">
+
+                <div class="project-info">
+
+                    <h3>Engineering Project</h3>
+
+                    <p>Engineering</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1000&q=80"
+                    alt="Project">
+
+                <div class="project-info">
+
+                    <h3>Factory Development</h3>
+
+                    <p>Manufacturing</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1590644365607-1c5a1a5e2c9b?auto=format&fit=crop&w=1000&q=80"
+                    alt="Project">
+
+                <div class="project-info">
+
+                    <h3>Steel Structure</h3>
+
+                    <p>Industrial</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1590486803833-1c5a1a5e2c9b?auto=format&fit=crop&w=1000&q=80"
+                    alt="Project">
+
+                <div class="project-info">
+
+                    <h3>Commercial Project</h3>
+
+                    <p>Construction</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="section why-section">
+
+        <div class="section-title">
+
+            <h2>
+                Why Choose <span class="orange">Us?</span>
+            </h2>
+
+            <p>
+                We focus on quality, reliability and customer
+                satisfaction in every project.
+            </p>
+
+        </div>
+
+
+        <div class="why">
+
+
+            <div class="why-card">
+
+                <h3>01. Professional Team</h3>
+
+                <p>
+                    Our experienced professionals work together
+                    to deliver outstanding results.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <h3>02. Quality Materials</h3>
+
+                <p>
+                    We use reliable and high-quality materials
+                    for every project.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <h3>03. Modern Technology</h3>
+
+                <p>
+                    We use modern technology to improve
+                    efficiency and quality.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <h3>04. Affordable Prices</h3>
+
+                <p>
+                    Our solutions are designed to provide
+                    excellent value for your investment.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <h3>05. On-Time Delivery</h3>
+
+                <p>
+                    We respect deadlines and complete projects
+                    according to schedule.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <h3>06. Customer Support</h3>
+
+                <p>
+                    Our team is always available to support
+                    our clients whenever needed.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="section testimonial-section">
+
+        <div class="testimonial">
+
+            <p>
+                "The team provided excellent service and completed
+                our project with outstanding quality. Their
+                professionalism and dedication were impressive."
+            </p>
+
+            <h3>John Smith</h3>
+
+            <small>Business Owner</small>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="section" id="blog">
+
+        <div class="section-title">
+
+            <h2>
+                Latest <span class="orange">News</span>
+            </h2>
+
+            <p>
+                Read our latest industry news, tips and updates.
+            </p>
+
+        </div>
+
+
+        <div class="blogs">
+
+
+            <div class="blog-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80"
+                    alt="Blog">
+
+                <div class="blog-content">
+
+                    <small>INDUSTRY • OCT 08, 2026</small>
+
+                    <h3>
+                        Modern Construction Technology
+                    </h3>
+
+                    <p>
+                        Discover how modern technology is changing
+                        the construction industry.
+                    </p>
+
+                    <a href="#" class="blog-link">
+                        READ MORE →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1581093458791-9d42e3c7b2b1?auto=format&fit=crop&w=1000&q=80"
+                    alt="Blog">
+
+                <div class="blog-content">
+
+                    <small>ENGINEERING • OCT 05, 2026</small>
+
+                    <h3>
+                        Future Of Industrial Engineering
+                    </h3>
+
+                    <p>
+                        Learn about the latest trends and
+                        innovations in engineering.
+                    </p>
+
+                    <a href="#" class="blog-link">
+                        READ MORE →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1000&q=80"
+                    alt="Blog">
+
+                <div class="blog-content">
+
+                    <small>BUSINESS • OCT 01, 2026</small>
+
+                    <h3>
+                        Building Successful Projects
+                    </h3>
+
+                    <p>
+                        Important factors that help businesses
+                        complete projects successfully.
+                    </p>
+
+                    <a href="#" class="blog-link">
+                        READ MORE →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+
+    <section class="cta">
+
+        <h2>
+            Have A Project In Mind?
+        </h2>
+
+        <a href="#contact" class="cta-btn">
+            GET A QUOTE
+        </a>
+
+    </section>
+
+
+
+    <section class="section" id="contact">
+
+        <div class="section-title">
+
+            <h2>
+                Contact <span class="orange">Us</span>
+            </h2>
+
+            <p>
+                Get in touch with us for your next project.
+            </p>
+
+        </div>
+
+
+        <div class="contact">
+
+
+            <div class="contact-info">
+
+                <h2>
+                    Let's Work Together
+                </h2>
+
+                <p>
+                    Have questions or need a professional
+                    industrial solution? Contact our team today.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <strong>Address</strong>
+
+                    <span>
+                        123 Industrial Street, New York, USA
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Phone</strong>
+
+                    <span>
+                        +1 234 567 890
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Email</strong>
+
+                    <span>
+                        info@industry.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Working Hours</strong>
+
+                    <span>
+                        Monday - Friday: 9:00 AM - 6:00 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <form class="contact-form">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required>
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required>
+
+                <input
+                    type="text"
+                    placeholder="Subject"
+                    required>
+
+                <textarea
+                    placeholder="Your Message"
+                    required></textarea>
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+                    SEND MESSAGE
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-box">
+
+                <div class="footer-logo">
+                    INDUSTR<span>Y</span>
+                </div>
+
+                <p>
+                    We provide professional industrial,
+                    construction and engineering solutions
+                    with quality and reliability.
+                </p>
+
+            </div>
+
+
+            <div class="footer-box">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-box">
+
+                <h3>Services</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Construction</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Engineering</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Manufacturing</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Consulting</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-box">
+
+                <h3>Contact</h3>
+
+                <p>
+                    +1 234 567 890
+                </p>
+
+                <p>
+                    info@industry.com
+                </p>
+
+                <p>
+                    New York, USA
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Industry. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+</body>
+
+</html>
